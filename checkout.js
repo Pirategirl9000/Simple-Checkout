@@ -10,25 +10,44 @@ function joinButtonClick(event) {
     // get user entries from text boxes
     const customer_name = getElement("#receipt_form").value;
     const grocery_item = getElement("#gorcery_item").value;
-    const unit_price = getElement("#unit_price").value;
-    const quantity = getElement("#quantity").value;
-    const cash = getElement("#cash").value;
+
+    // Not constant since we need to parse it
+    let unit_price = getElement("#unit_price").value;
+    let quantity = getElement("#quantity").value;
+    let cash = getElement("#cash").value;
     
     // check user entries
     let invalid = false;
-    if (email1 === "") {
-        getElement("#email_1_error").textContent = "Email is required.";
+    if (customer_name === "") {
+        getElement("#customer_name_error").textContent = "Required";
         invalid = true;
     } else { 
-        getElement("#email_1_error").textContent = "";
+        getElement("#customer_name_error").textContent = "";
     }
 
-    if (email1 !== email2) {
-        getElement("#email_2_error").textContent = "Emails must match.";
+    if (grocery_item === "") {
+        getElement("#grocery_item_error").textContent = "Required";
         invalid = true;
     } else { 
-        getElement("#email_2_error").textContent = ""; 
+        getElement("#grocery_item_error").textContent = "";
     }
+
+    // First we check to see if it's an empty input before we parse it to a number
+    // This is because an empty string parsed to a number becomes 0
+    if (unit_price === "") {
+        getElement("#unit_price_error").textContent = "Required";
+        invalid = true;
+    } else {
+        unit_price = Number(unit_price);
+
+        if (isNaN(unit_price)) {
+            getElement("#unit_price_error").textContent = "Must be numeric";
+            invalid = true;
+        }
+
+    }
+
+
 
     // cancel form submit if any user entries are invalid
     if (invalid) {
@@ -39,5 +58,5 @@ function joinButtonClick(event) {
 // add code that's run when the web page is loaded
 document.addEventListener("DOMContentLoaded", () => {
     // specify the function that's run when the Join button is clicked
-    getElement("#join_button").addEventListener("click", joinButtonClick);
+    getElement("#submit_button").addEventListener("click", joinButtonClick);
 });
