@@ -13,14 +13,14 @@ function joinButtonClick(event) {
     
     // check user entries
     let invalid = false;
-    if (email1 == "") { 
+    if (email1 === "") {
         getElement("#email_1_error").textContent = "Email is required.";
         invalid = true;
     } else { 
-        getElement("#email_1_error").textContent = ""; 
+        getElement("#email_1_error").textContent = "";
     }
 
-    if (email1 != email2) { 
+    if (email1 !== email2) {
         getElement("#email_2_error").textContent = "Emails must match.";
         invalid = true;
     } else { 
