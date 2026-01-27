@@ -8,13 +8,13 @@ function getElement(selector) {
 // define a function that handles the click event of the Join button
 function calculateButtonClick(event) {
     // get user entries from text boxes
-    const customer_name = getElement("#receipt_form").value.trim();
-    const grocery_item = getElement("#gorcery_item").value.trim();
+    const customer_name = getElement("#receipt_form").value;
+    const grocery_item = getElement("#grocery_item").value;
 
     // Not constant since we need to parse it
-    let unit_price = getElement("#unit_price").value.trim();
-    let quantity = getElement("#quantity").value.trim();
-    let cash = getElement("#cash").value.trim();
+    let unit_price = getElement("#unit_price").value;
+    let quantity = getElement("#quantity").value;
+    let cash = getElement("#cash").value;
     
     // check user entries
     let invalid = false;
@@ -89,9 +89,9 @@ function calculateButtonClick(event) {
 
 
     // cancel form submit if any user entries are invalid
-    if (invalid) {
-        event.preventDefault(); 
-    }
+    //if (invalid) {
+        event.preventDefault();
+    //}
 }
 
 // add code that's run when the web page is loaded
