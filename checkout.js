@@ -43,8 +43,9 @@ function calculateButtonClick(event) {
         if (isNaN(unit_price)) {
             getElement("#unit_price_error").textContent = "Must be numeric";
             invalid = true;
+        } else {
+            getElement("#unit_price_error").textContent = "";
         }
-
     }
 
     if (quantity === "") {
@@ -55,6 +56,8 @@ function calculateButtonClick(event) {
 
         if (isNaN(quantity)) {
             getElement("#quantity_error").textContent = "Must be numeric";
+        } else {
+            getElement("#quantity_error").textContent = "";
         }
     }
 
@@ -65,6 +68,8 @@ function calculateButtonClick(event) {
         cash = Number(cash);
         if (isNaN(cash)) {
             getElement("#cash_error").textContent = "Must be numeric";
+        } else {
+            getElement("#cash_error").textContent = "";
         }
     }
 
