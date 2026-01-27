@@ -68,13 +68,31 @@ function calculateButtonClick(event) {
         }
     }
 
+    const receipt =
+        `
+        ========Receipt========
+        Customer: ${customer_name}
+        Item: ${grocery_item}
+        Unit Price: ${unit_price}
+        Quantity: ${quantity}
+        ----------
+        
+        
+        
+        
+        ----------
+        Cash: $${cash}
+        `;
+
+    alert(receipt);
+
 
 
     // cancel form submit if any user entries are invalid
     if (invalid) {
         event.preventDefault(); 
     }
-};
+}
 
 // add code that's run when the web page is loaded
 document.addEventListener("DOMContentLoaded", () => {
