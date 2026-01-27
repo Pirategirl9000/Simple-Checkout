@@ -79,5 +79,5 @@ function calculateButtonClick(event) {
 // add code that's run when the web page is loaded
 document.addEventListener("DOMContentLoaded", () => {
     // specify the function that's run when the Join button is clicked
-    getElement("#submit_button").addEventListener("click", joinButtonClick);
+    getElement("#submit_button").addEventListener("click",calculateButtonClick);
 });
