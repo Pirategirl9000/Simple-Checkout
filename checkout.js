@@ -6,7 +6,7 @@ function getElement(selector) {
 }
 
 // define a function that handles the click event of the Join button
-function joinButtonClick(event) {
+function calculateButtonClick(event) {
     // get user entries from text boxes
     const customer_name = getElement("#receipt_form").value;
     const grocery_item = getElement("#gorcery_item").value;
@@ -45,6 +45,27 @@ function joinButtonClick(event) {
             invalid = true;
         }
 
+    }
+
+    if (quantity === "") {
+        getElement("#quantity_error").textContent = "Required";
+        invalid = true;
+    } else {
+        quantity = Number(quantity);
+
+        if (isNaN(quantity)) {
+            getElement("#quantity_error").textContent = "Must be numeric";
+        }
+    }
+
+    if (cash === "") {
+        getElement("#cash_error").textContent = "Required";
+        invalid = true;
+    } else {
+        cash = Number(cash);
+        if (isNaN(cash)) {
+            getElement("#cash_error").textContent = "Must be numeric";
+        }
     }
 
 
