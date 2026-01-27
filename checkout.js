@@ -8,13 +8,13 @@ function getElement(selector) {
 // define a function that handles the click event of the Join button
 function calculateButtonClick(event) {
     // get user entries from text boxes
-    const customer_name = getElement("#receipt_form").value;
-    const grocery_item = getElement("#gorcery_item").value;
+    const customer_name = getElement("#receipt_form").value.trim();
+    const grocery_item = getElement("#gorcery_item").value.trim();
 
     // Not constant since we need to parse it
-    let unit_price = getElement("#unit_price").value;
-    let quantity = getElement("#quantity").value;
-    let cash = getElement("#cash").value;
+    let unit_price = getElement("#unit_price").value.trim();
+    let quantity = getElement("#quantity").value.trim();
+    let cash = getElement("#cash").value.trim();
     
     // check user entries
     let invalid = false;
