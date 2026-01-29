@@ -7,6 +7,10 @@ function getElement(selector) {
 
 // define a function that handles the click event of the Join button
 function calculateButtonClick(event) {
+    // Hard coded rates
+    const TAX_RATE = 0.0825;
+    const DISCOUNT_RATE = 0.10;
+
     // get user entries from text boxes
     const customer_name = getElement("#customer_name").value;
     const grocery_item = getElement("#grocery_item").value;
@@ -81,10 +85,10 @@ function calculateButtonClick(event) {
         Unit Price: ${unit_price}
         Quantity: ${quantity}
         ----------
-        
-        
-        
-        
+        Subtotal:
+        Discount:
+        Tax:
+        Total:
         ----------
         Cash: $${cash}
         `;
