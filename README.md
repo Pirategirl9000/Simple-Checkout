@@ -2,7 +2,7 @@
 ---
 <!-- TODO: Capture a photo of this running for later and paste it in the assets folder with this name-->
 ![Photo of Webpage](assets/webpage.png)
-![Photo of Alert Message](assets/alertMsg)
+![Photo of Alert Message](assets/alertMsg.png)
 
 ## Programmers
 <!-- We use &nbsp to add white space so Github links are aligned -->
