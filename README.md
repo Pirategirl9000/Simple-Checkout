@@ -1,7 +1,7 @@
 # **Simple-Checkout**
 ---
 <!-- TODO: Capture a photo of this running for later and paste it in the assets folder with this name-->
-![Photo of Webpage](assets/webpage)
+![Photo of Webpage](assets/webpage.png)
 ![Photo of Alert Message](assets/alertMsg)
 
 ## Programmers
