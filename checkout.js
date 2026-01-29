@@ -110,7 +110,7 @@ function calculateButtonClick(event) {
     }
 
     if (!isFinite(total)) {
-        alert("Subtotal too high");
+        alert("Total too high");
         invalid = true;
     }
 
