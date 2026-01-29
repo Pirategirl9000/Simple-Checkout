@@ -116,6 +116,11 @@ function calculateButtonClick(event) {
         invalid = true;
     }
 
+    if (change < 0) {
+        alert("You do not have the funds necessary for this purchase")
+        invalid = true;
+    }
+
     subtotal = subtotal.toFixed(2);
     unit_price = unit_price.toFixed(2);
     tax = tax.toFixed(2);
