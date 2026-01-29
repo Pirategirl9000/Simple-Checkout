@@ -25,3 +25,13 @@ input {
 span {
     color: red;
 }
+
+.submit {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#submit_button {
+    margin-left: 3em;
+}
