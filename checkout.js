@@ -41,7 +41,7 @@ function calculateButtonClick(event) {
     if (unit_price === "") {
         getElement("#unit_price_error").textContent = "Required";
         invalid = true;
-    } else {
+    } else {  // Parse it to a number then do more checks
         unit_price = Number(unit_price)
 
         if (isNaN(unit_price)) {
@@ -61,7 +61,8 @@ function calculateButtonClick(event) {
     } else if (!isFinite(cash)) {  // Check for infinities because math can't be done on them
         getElement("#cash_error").textContent = "Number too high";
         invalid = true;
-    } else {
+    } else {  // Parse it to a number then do more checks
+        // Rather than designing an error message for floating point quantities we will instead just floor it
         quantity = Math.floor(Number(quantity));
 
         if (isNaN(quantity)) {
@@ -81,8 +82,9 @@ function calculateButtonClick(event) {
     if (cash === "") {
         getElement("#cash_error").textContent = "Required";
         invalid = true;
-    } else {
+    } else {  // Parse it to a number then do more checks
         cash = Number(cash);
+
         if (isNaN(cash)) {
             getElement("#cash_error").textContent = "Must be numeric";
             invalid = true;
