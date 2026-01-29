@@ -42,7 +42,7 @@ function calculateButtonClick(event) {
         getElement("#unit_price_error").textContent = "Required";
         invalid = true;
     } else {
-        unit_price = Number(unit_price);
+        unit_price = Number(unit_price)
 
         if (isNaN(unit_price)) {
             getElement("#unit_price_error").textContent = "Must be numeric";
@@ -78,25 +78,31 @@ function calculateButtonClick(event) {
     }
 
     // Calculate our values
-    const subtotal = unit_price * quantity;
-    const discount = (subtotal >= 50) ? subtotal * DISCOUNT_RATE : 0;
-    const tax = (subtotal - discount) * TAX_RATE;
-    const total = subtotal + tax - discount;
-    const change = cash - total;
+    let subtotal = unit_price * quantity;
+    let discount = (subtotal >= 50) ? subtotal * DISCOUNT_RATE : 0;
+    let tax = (subtotal - discount) * TAX_RATE;
+    let total = subtotal + tax - discount;
+    let change = cash - total;
 
+    subtotal = subtotal.toFixed(2);
+    unit_price = unit_price.toFixed(2);
+    tax = tax.toFixed(2);
+    total = total.toFixed(2);
+    change = change.toFixed(2);
+    cash = cash.toFixed(2);
 
     const receipt =
         `
         ========Receipt========
         Customer: ${customer_name}
         Item: ${grocery_item}
-        Unit Price: ${unit_price}
+        Unit Price: $${unit_price}
         Quantity: ${quantity}
         ----------
-        Subtotal: ${subtotal}
-        Discount: ${discount}
-        Tax: ${tax}
-        Total: ${total}
+        Subtotal: $${subtotal}
+        Discount: -$${discount}
+        Tax: $${tax}
+        Total: $${total}
         ----------
         Cash: $${cash}
         Change: $${change}
