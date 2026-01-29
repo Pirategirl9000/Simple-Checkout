@@ -77,6 +77,14 @@ function calculateButtonClick(event) {
         }
     }
 
+    // Calculate our values
+    const subtotal = unit_price * quantity;
+    const discount = (subtotal >= 50) ? subtotal * DISCOUNT_RATE : 0;
+    const tax = (subtotal - discount) * TAX_RATE;
+    const total = subtotal + tax - discount;
+    const change = cash - total;
+
+
     const receipt =
         `
         ========Receipt========
@@ -85,22 +93,27 @@ function calculateButtonClick(event) {
         Unit Price: ${unit_price}
         Quantity: ${quantity}
         ----------
-        Subtotal:
-        Discount:
-        Tax:
-        Total:
+        Subtotal: ${subtotal}
+        Discount: ${discount}
+        Tax: ${tax}
+        Total: ${total}
         ----------
         Cash: $${cash}
+        Change: $${change}
+        =====End of Receipt=====
         `;
 
-    alert(receipt);
+
 
 
 
     // cancel form submit if any user entries are invalid
-    //if (invalid) {
+    if (invalid) {
         event.preventDefault();
-    //}
+        return;
+    }
+
+    alert(receipt);
 }
 
 // add code that's run when the web page is loaded
