@@ -55,11 +55,15 @@ function calculateButtonClick(event) {
     if (quantity === "") {
         getElement("#quantity_error").textContent = "Required";
         invalid = true;
+    } else if (!isFinite(cash)) {  // Check for infinities because math can't be done on them
+        getElement("#cash_error").textContent = "Number too high";
     } else {
         quantity = Math.floor(Number(quantity));
 
         if (isNaN(quantity)) {
             getElement("#quantity_error").textContent = "Must be numeric";
+        } else if (!isFinite(cash)) {  // Check for infinities because math can't be done on them
+            getElement("#cash_error").textContent = "Number too high";
         } else {
             getElement("#quantity_error").textContent = "";
         }
@@ -72,6 +76,8 @@ function calculateButtonClick(event) {
         cash = Number(cash);
         if (isNaN(cash)) {
             getElement("#cash_error").textContent = "Must be numeric";
+        } else if (!isFinite(cash)) {  // Check for infinities because math can't be done on them
+          getElement("#cash_error").textContent = "Number too high";
         } else {
             getElement("#cash_error").textContent = "";
         }
@@ -83,6 +89,16 @@ function calculateButtonClick(event) {
     let tax = (subtotal - discount) * TAX_RATE;
     let total = subtotal + tax - discount;
     let change = cash - total;
+
+    if (!isFinite(subtotal)) {
+        alert("Subtotal too high");
+        invalid = true;
+    }
+
+    if (!isFinite(total)) {
+        alert("Subtotal too high");
+        invalid = true;
+    }
 
     subtotal = subtotal.toFixed(2);
     unit_price = unit_price.toFixed(2);
