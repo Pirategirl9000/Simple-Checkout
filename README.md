@@ -1,7 +1,8 @@
 # **Simple-Checkout**
 ---
 <!-- TODO: Capture a photo of this running for later and paste it in the assets folder with this name-->
-![Photo of Output](assets/codeRunning)
+![Photo of Webpage](assets/webpage)
+![Photo of Alert Message](assets/alertMsg)
 
 ## Programmers
 <!-- We use &nbsp to add white space so Github links are aligned -->
@@ -12,12 +13,16 @@
 1.0
 
 ## Purpose
-<!-- TODO: Here we will insert the purpose of the program when it becomes clear -->
-### ***PLACEHOLDER***
+Displays a webpage that allows the user to input values that will then be turned into a grocery receipt summarizing the inputs and calculating the change they get back. Displays the output of the receipt in a Javascript alert message
 
 ## Functions
-<!-- TODO: Here we will detail what each paragraph does with photos of the code where necessary -->
-### ***PLACEHOLDER***
+``` getElement(selector) ```
+* Retrieves an element based on a CSS selector
+
+``` calculateButtonClick(event) ```
+* Gathers inputs from the HTML form and arranges them into a grocery receipt if the inputs are valid
+* Attaches to the submit button of the form
+
 
 ---
 ### Credits
