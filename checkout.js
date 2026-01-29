@@ -47,6 +47,9 @@ function calculateButtonClick(event) {
         if (isNaN(unit_price)) {
             getElement("#unit_price_error").textContent = "Must be numeric";
             invalid = true;
+        } else if (unit_price < 0) {
+            getElement("#unit_price_error").textContent = "Must be greater than or equal to 0";
+            invalid = true;
         } else {
             getElement("#unit_price_error").textContent = "";
         }
@@ -57,13 +60,19 @@ function calculateButtonClick(event) {
         invalid = true;
     } else if (!isFinite(cash)) {  // Check for infinities because math can't be done on them
         getElement("#cash_error").textContent = "Number too high";
+        invalid = true;
     } else {
         quantity = Math.floor(Number(quantity));
 
         if (isNaN(quantity)) {
             getElement("#quantity_error").textContent = "Must be numeric";
+            invalid = true;
         } else if (!isFinite(cash)) {  // Check for infinities because math can't be done on them
             getElement("#cash_error").textContent = "Number too high";
+            invalid = true;
+        } else if (quantity < 0) {
+            getElement("#quantity_error").textContent = "Must be greater than or equal to 0";
+            invalid = true;
         } else {
             getElement("#quantity_error").textContent = "";
         }
@@ -76,8 +85,13 @@ function calculateButtonClick(event) {
         cash = Number(cash);
         if (isNaN(cash)) {
             getElement("#cash_error").textContent = "Must be numeric";
+            invalid = true;
         } else if (!isFinite(cash)) {  // Check for infinities because math can't be done on them
           getElement("#cash_error").textContent = "Number too high";
+          invalid = true;
+        } else if (cash < 0) {
+            getElement("#cash_error").textContent = "Must be greater than or equal to 0";
+            invalid = true;
         } else {
             getElement("#cash_error").textContent = "";
         }
