@@ -56,7 +56,7 @@ function calculateButtonClick(event) {
         getElement("#quantity_error").textContent = "Required";
         invalid = true;
     } else {
-        quantity = Number(quantity);
+        quantity = Math.floor(Number(quantity));
 
         if (isNaN(quantity)) {
             getElement("#quantity_error").textContent = "Must be numeric";
